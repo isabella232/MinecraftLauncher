@@ -190,7 +190,7 @@
 			this.MaximizeBox = false;
 			this.Name = "Main";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Minetrophy";
+			this.Text = "Minetrophy launcher";
 			((System.ComponentModel.ISupportInitialize)(this.updaterControl)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

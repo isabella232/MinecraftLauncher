@@ -4,6 +4,7 @@
 	{
 		public const string InvalidLoginLength = "Имя должно быть длиной от {0} до {1} символов.";
 		public const string InvalidLoginFormat = "Имя может состоять только из малых/заглавных букв английского алфавита, цифр и знаков '-', '_'.";
+		public const string PasswordsNotMatch = "Пароли не совпадают.";
 		public const string MinecraftFolderMissing = "Клиент поврежден!\n\nДиректория '{0}' не обнаружена!";
 		public const string MinecraftBinFolderMissing = "Клиент поврежден!\n\nДиректория '{0}\\{1}' не обнаружена!";
 		public const string MinecraftJarMissing = "Клиент поврежден!\n\nФайл '{0}\\{1}\\{2}' не найден!";

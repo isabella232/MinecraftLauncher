@@ -156,6 +156,8 @@
   <ItemGroup>
     <Content Include="ico.ico" />
     <None Include="Resources\bg.jpg" />
+    <None Include="Resources\launcherbg.jpg" />
+    <None Include="Resources\bg_reg.jpg" />
     <None Include="Resources\check_for_updates.png" />
     <None Include="Resources\login_button_hover.png" />
     <None Include="Resources\login-button-disabled.png" />

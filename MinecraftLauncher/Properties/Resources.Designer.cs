@@ -73,6 +73,16 @@ namespace MinecraftLauncher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bg_reg {
+            get {
+                object obj = ResourceManager.GetObject("bg_reg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_for_updates {
             get {
                 object obj = ResourceManager.GetObject("check_for_updates", resourceCulture);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using MinecraftLauncher.Core;
@@ -10,6 +11,7 @@ namespace MinecraftLauncher
 		public RegisterForm()
 		{
 			InitializeComponent();
+			Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
 			KeyDown += (s, e) =>
 			{
@@ -23,6 +25,9 @@ namespace MinecraftLauncher
 			try
 			{
 				ValidationUnit.ValidateLogin(LoginTextBox.Text);
+
+				if (PasswordTextBox.Text != ConfirmTextBox.Text)
+					throw new InvalidOperationException(Strings.PasswordsNotMatch);
 			}
 			catch (Exception ex)
 			{
