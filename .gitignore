@@ -1,0 +1,16 @@
+*.suo
+*.vsp
+
+#ReSharper
+/_ReSharper.*
+
+#Workflow
+/WF_Data
+
+#obj
+/*/obj
+
+#bin
+/*/bin/Debug/
+/*/bin/Release/
+!/*/bin/Debug/*.dll
