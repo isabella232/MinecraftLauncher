@@ -154,7 +154,6 @@
 			// 
 			this.LoginButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
 			this.LoginButton.BackColor = System.Drawing.Color.Transparent;
-			this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.LoginButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.LoginButton.Font = new System.Drawing.Font("Tahoma", 9.75F);
 			this.LoginButton.ForeColor = System.Drawing.Color.White;

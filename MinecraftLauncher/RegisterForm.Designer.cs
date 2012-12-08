@@ -99,7 +99,6 @@
 			// 
 			this.RegisterButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
 			this.RegisterButton.BackColor = System.Drawing.Color.Transparent;
-			this.RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.RegisterButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.RegisterButton.ForeColor = System.Drawing.Color.White;
 			this.RegisterButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
@@ -118,7 +117,6 @@
 			// 
 			this.CancelButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
 			this.CancelButton.BackColor = System.Drawing.Color.Transparent;
-			this.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.CancelButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.CancelButton.ForeColor = System.Drawing.Color.White;
 			this.CancelButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
