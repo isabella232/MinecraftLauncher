@@ -44,7 +44,6 @@ namespace MinecraftLauncher
 			try
 			{
 				context = SettingsManager.Load();
-				context.Password = Tools.DecodePassword(context.Password);
 			}
 			catch (Exception ex)
 			{
@@ -71,6 +70,8 @@ namespace MinecraftLauncher
 
 			if (checkForUpdatesOnStart)
 				updaterControl.ForceCheckForUpdate(true);
+
+			context.Password = Tools.DecodePassword(context.Password);
 
 			LoginTextBox.Text = context.Login;
 			PasswordTextBox.Text = context.Password;

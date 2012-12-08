@@ -55,8 +55,6 @@ namespace MinecraftLauncher.Core
 				};
 
 				game.Start();
-				game.WaitForInputIdle();
-
 				var clientStarted = false;
 
 				var waitForClientTask = new Task(() =>
