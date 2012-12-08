@@ -155,15 +155,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ico.ico" />
+    <None Include="Resources\button_active.png" />
+    <None Include="Resources\button_disable.png" />
+    <None Include="Resources\button.png" />
+    <None Include="Resources\button_hover.png" />
     <None Include="Resources\bg.jpg" />
-    <None Include="Resources\launcherbg.jpg" />
     <None Include="Resources\bg_reg.jpg" />
     <None Include="Resources\check_for_updates.png" />
-    <None Include="Resources\login_button_hover.png" />
-    <None Include="Resources\login-button-disabled.png" />
-    <None Include="Resources\login_button.png" />
     <None Include="Resources\download.png" />
-    <None Include="Resources\login-button.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

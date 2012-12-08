@@ -42,10 +42,6 @@ namespace MinecraftLauncher.Core
 		public static string AuthLink { get; private set; }
 		/// <summary>Ссылка на скрипт регистрации.</summary>
 		public static string RegLink { get; private set; }
-		/// <summary>Ссылка на архив с клиентом.</summary>
-		public static string ClientLink { get; private set; }
-		/// <summary>Имя загружаемого архива клиента.</summary>
-		public static string DownloadedClientFileName { get; private set; }
 
 		static FileManager()
 		{
@@ -55,10 +51,8 @@ namespace MinecraftLauncher.Core
 				StartupDirectory = directoryInfo.FullName;
 
 			SettingsFilePath = Path.Combine(StartupDirectory, SettingsFileName);
-			AuthLink = "http://78.46.80.82/auth.php";
-			RegLink = "http://78.46.80.82/reg.php";
-			ClientLink = "http://78.46.80.82/client.zip";
-			DownloadedClientFileName = "client.zip";
+			AuthLink = "http://78.46.80.82/auth.php?login={0}&password={1}&hash={2}";
+			RegLink = "http://78.46.80.82/reg.php?login={0}&password={1}";
 		}
 
 		/// <summary>
@@ -74,14 +68,14 @@ namespace MinecraftLauncher.Core
 				context.JavaHomePath = javaHome;
 			}
 			else
-				throw new Exception(Strings.UnableToFindJava);
+				throw new Exception(Errors.UnableToFindJava);
 
 			JavaHomePath = javaHome;
 
 			var javawFilePath = Path.Combine(JavaHomePath, "bin", JavaFileName);
 
 			if (!File.Exists(javawFilePath))
-				throw new InvalidOperationException(String.Format(Strings.UnableToFindJavaExe, JavaFileName));
+				throw new InvalidOperationException(String.Format(Errors.UnableToFindJavaExe, JavaFileName));
 
 			JavaFilePath = javawFilePath;
 		}
@@ -94,13 +88,13 @@ namespace MinecraftLauncher.Core
 			var tempPath = Path.Combine(StartupDirectory, MinecraftFolderName);
 
 			if (!Directory.Exists(tempPath))
-				throw new InvalidOperationException(String.Format(Strings.MinecraftFolderMissing, MinecraftFolderName));
+				throw new InvalidOperationException(String.Format(Errors.MinecraftFolderMissing, MinecraftFolderName));
 
 			MinecraftDirectory = tempPath;
 			tempPath = Path.Combine(MinecraftDirectory, MinecraftBinFolderName);
 
 			if (!Directory.Exists(tempPath))
-				throw new InvalidOperationException(String.Format(Strings.MinecraftBinFolderMissing, MinecraftFolderName, MinecraftBinFolderName));
+				throw new InvalidOperationException(String.Format(Errors.MinecraftBinFolderMissing, MinecraftFolderName, MinecraftBinFolderName));
 
 			MinecraftBinDirectory = tempPath;
 			// Необязательная папка, может и не быть.
@@ -109,7 +103,7 @@ namespace MinecraftLauncher.Core
 			tempPath = Path.Combine(MinecraftBinDirectory, MinecraftJarFileName);
 
 			if (!File.Exists(tempPath))
-				throw new InvalidOperationException(String.Format(Strings.MinecraftJarMissing, MinecraftFolderName, MinecraftBinFolderName, MinecraftJarFileName));
+				throw new InvalidOperationException(String.Format(Errors.MinecraftJarMissing, MinecraftFolderName, MinecraftBinFolderName, MinecraftJarFileName));
 
 			MinecraftJarPath = tempPath;
 		}

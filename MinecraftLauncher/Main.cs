@@ -37,9 +37,6 @@ namespace MinecraftLauncher
 				if (e.KeyCode == Keys.Enter && LoginButton.Enabled)
 					LoginButtonClick(this, new EventArgs());
 			};
-
-			LoginButton.MouseEnter += (s, e) => LoginButton.BackgroundImage = Resources.login_button_hover;
-			LoginButton.MouseLeave += (s, e) => LoginButton.BackgroundImage = Resources.login_button;
 		}
 
 		private void FormLoad(object sender, EventArgs e)
@@ -117,47 +114,32 @@ namespace MinecraftLauncher
 			}
 			catch
 			{
-				Tools.InfoBoxShow(Strings.ClientDamagedText, Strings.ClientDamagedTitle);
+				Tools.InfoBoxShow(Errors.ClientDamagedText, Errors.ClientDamagedTitle);
 				LoginButton.State = UI.ImageButton.ImageButtonState.Disabled;
 				return;
 			}
 
 			Application.DoEvents();
-			var authResponse = string.Empty;
 
 			try
 			{
 				Cursor = Cursors.WaitCursor;
-				authResponse = AuthManager.Authentificate(LoginTextBox.Text, PasswordTextBox.Text);
+				context.SessionID = AuthManager.Authentificate(LoginTextBox.Text, PasswordTextBox.Text);
 			}
 			catch (Exception ex)
 			{
 				File.WriteAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace);
 				Tools.InfoBoxShow(ex.Message);
+				Cursor = Cursors.Arrow;
+				return;
 			}
 			finally
 			{
 				Cursor = Cursors.Arrow;
 			}
 
-			if (String.IsNullOrEmpty(authResponse))
-				return;
-
-			if (authResponse.Equals(Responses.BadLogin, StringComparison.OrdinalIgnoreCase))
-			{
-				Tools.InfoBoxShow(Errors.InvalidLoginOrPassword);
-				return;
-			}
-
-			if (authResponse.Equals(Responses.Checksum, StringComparison.OrdinalIgnoreCase))
-			{
-				Tools.InfoBoxShow(Errors.InvalidVersion);
-				return;
-			}
-
 			context.Login = LoginTextBox.Text;
 			context.Password = Tools.EncodePassword(PasswordTextBox.Text);
-			context.SessionID = authResponse;
 
 			try
 			{
@@ -182,23 +164,6 @@ namespace MinecraftLauncher
 		private void CheckForUpdatesButtonClick(object sender, EventArgs e)
 		{
 			updaterControl.ForceCheckForUpdate(true);
-		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			var client = new WebClient
-			{
-				Proxy = null
-			};
-
-			var response = client.UploadValues("http://78.46.80.82/index.php/register/", new System.Collections.Specialized.NameValueCollection
-			{
-				{ "login", "qwerty1" },
-				{ "password", "qwerty2" }
-			});
-
-			var text = Encoding.UTF8.GetString(response);
-			text = text;
 		}
 	}
 }

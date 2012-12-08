@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
 			this.LoginTextBox = new System.Windows.Forms.TextBox();
 			this.PasswordTextBox = new System.Windows.Forms.TextBox();
 			this.ConfirmTextBox = new System.Windows.Forms.TextBox();
@@ -42,7 +41,7 @@
 			// LoginTextBox
 			// 
 			this.LoginTextBox.Location = new System.Drawing.Point(122, 88);
-			this.LoginTextBox.MaxLength = 14;
+			this.LoginTextBox.MaxLength = 146;
 			this.LoginTextBox.Name = "LoginTextBox";
 			this.LoginTextBox.Size = new System.Drawing.Size(206, 21);
 			this.LoginTextBox.TabIndex = 0;
@@ -98,15 +97,15 @@
 			// 
 			// RegisterButton
 			// 
-			this.RegisterButton.Active = ((System.Drawing.Image)(resources.GetObject("RegisterButton.Active")));
+			this.RegisterButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
 			this.RegisterButton.BackColor = System.Drawing.Color.Transparent;
 			this.RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.RegisterButton.Disabled = ((System.Drawing.Image)(resources.GetObject("RegisterButton.Disabled")));
+			this.RegisterButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.RegisterButton.ForeColor = System.Drawing.Color.White;
-			this.RegisterButton.Hover = ((System.Drawing.Image)(resources.GetObject("RegisterButton.Hover")));
+			this.RegisterButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
 			this.RegisterButton.Location = new System.Drawing.Point(120, 203);
 			this.RegisterButton.Name = "RegisterButton";
-			this.RegisterButton.Normal = ((System.Drawing.Image)(resources.GetObject("RegisterButton.Normal")));
+			this.RegisterButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.RegisterButton.Size = new System.Drawing.Size(100, 25);
 			this.RegisterButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
 			this.RegisterButton.TabIndex = 8;
@@ -117,15 +116,15 @@
 			// 
 			// CancelButton
 			// 
-			this.CancelButton.Active = ((System.Drawing.Image)(resources.GetObject("CancelButton.Active")));
+			this.CancelButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
 			this.CancelButton.BackColor = System.Drawing.Color.Transparent;
 			this.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.CancelButton.Disabled = ((System.Drawing.Image)(resources.GetObject("CancelButton.Disabled")));
+			this.CancelButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.CancelButton.ForeColor = System.Drawing.Color.White;
-			this.CancelButton.Hover = ((System.Drawing.Image)(resources.GetObject("CancelButton.Hover")));
+			this.CancelButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
 			this.CancelButton.Location = new System.Drawing.Point(226, 203);
 			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.Normal = ((System.Drawing.Image)(resources.GetObject("CancelButton.Normal")));
+			this.CancelButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.CancelButton.Size = new System.Drawing.Size(100, 25);
 			this.CancelButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
 			this.CancelButton.TabIndex = 9;

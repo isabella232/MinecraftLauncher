@@ -152,16 +152,16 @@
 			// 
 			// LoginButton
 			// 
-			this.LoginButton.Active = global::MinecraftLauncher.Properties.Resources.login_button_hover;
+			this.LoginButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
 			this.LoginButton.BackColor = System.Drawing.Color.Transparent;
 			this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.LoginButton.Disabled = global::MinecraftLauncher.Properties.Resources.login_button_disabled;
+			this.LoginButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.LoginButton.Font = new System.Drawing.Font("Tahoma", 9.75F);
 			this.LoginButton.ForeColor = System.Drawing.Color.White;
-			this.LoginButton.Hover = global::MinecraftLauncher.Properties.Resources.login_button_hover;
+			this.LoginButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
 			this.LoginButton.Location = new System.Drawing.Point(408, 278);
 			this.LoginButton.Name = "LoginButton";
-			this.LoginButton.Normal = global::MinecraftLauncher.Properties.Resources.login_button_hover;
+			this.LoginButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.LoginButton.Size = new System.Drawing.Size(100, 25);
 			this.LoginButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
 			this.LoginButton.TabIndex = 11;

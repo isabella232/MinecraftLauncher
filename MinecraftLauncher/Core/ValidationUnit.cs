@@ -8,9 +8,10 @@ namespace MinecraftLauncher.Core
 	/// </summary>
 	static class ValidationUnit
 	{
-		private const int LoginMinLength = 4;
-		private const int LoginMaxLength = 14;
-		private const string LoginPattern = "[a-zA-Z0-9_-]+$";
+		public const int LoginMinLength = 4;
+		public const int LoginMaxLength = 14;
+		public const int PasswordMinLength = 6;
+		public const string LoginPattern = "[a-zA-Z0-9_-]+$";
 
 		private static readonly Regex validator = new Regex(LoginPattern);
 
@@ -21,10 +22,10 @@ namespace MinecraftLauncher.Core
 		public static void ValidateLogin(string login)
 		{
 			if (String.IsNullOrEmpty(login) || login.Length < LoginMinLength || login.Length > LoginMaxLength)
-				throw new InvalidOperationException(String.Format(Strings.InvalidLoginLength, LoginMinLength, LoginMaxLength));
+				throw new InvalidOperationException(String.Format(Errors.InvalidLoginLength, LoginMinLength, LoginMaxLength));
 
 			if (!validator.IsMatch(login))
-				throw new InvalidOperationException(Strings.InvalidLoginFormat);
+				throw new InvalidOperationException(Errors.InvalidLoginFormat);
 		}
 	}
 }
