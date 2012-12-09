@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -69,6 +70,13 @@ namespace MinecraftLauncher.Core
 
 			return builder.ToString();
 		}
+
+		[DllImport("user32.dll")]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+		[DllImport("user32.dll")]
+		public static extern IntPtr SetFocus(IntPtr hWnd);
 
 		private static string CalculateMd5Hash(byte[] bytes)
 		{

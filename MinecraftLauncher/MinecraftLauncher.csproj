@@ -92,6 +92,7 @@
     <Compile Include="Core\LaunchContext.cs" />
     <Compile Include="Core\Launcher.cs" />
     <Compile Include="Core\Responses.cs" />
+    <Compile Include="Core\ServerManager.cs" />
     <Compile Include="Core\SettingsManager.cs" />
     <Compile Include="Core\Strings.cs" />
     <Compile Include="Core\Tools.cs" />

@@ -38,11 +38,6 @@ namespace MinecraftLauncher.Core
 		/// <summary>Путь к исполняемому файлу клиента Minecraft.</summary>
 		public static string MinecraftJarPath { get; private set; }
 
-		/// <summary>Ссылка на скрипт авторизации.</summary>
-		public static string AuthLink { get; private set; }
-		/// <summary>Ссылка на скрипт регистрации.</summary>
-		public static string RegLink { get; private set; }
-
 		static FileManager()
 		{
 			var directoryInfo = new FileInfo(Application.ExecutablePath).Directory;
@@ -51,8 +46,6 @@ namespace MinecraftLauncher.Core
 				StartupDirectory = directoryInfo.FullName;
 
 			SettingsFilePath = Path.Combine(StartupDirectory, SettingsFileName);
-			AuthLink = "http://78.46.80.82/auth.php?login={0}&password={1}&hash={2}";
-			RegLink = "http://78.46.80.82/reg.php?login={0}&password={1}";
 		}
 
 		/// <summary>

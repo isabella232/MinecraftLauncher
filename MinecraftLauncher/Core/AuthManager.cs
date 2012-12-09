@@ -24,7 +24,7 @@ namespace MinecraftLauncher.Core
 			var pwdHash = Tools.GetMd5HashFromString(password);
 			var clientHash = Tools.GetMd5HashFromFile(FileManager.MinecraftJarPath);
 
-			var response = webClient.DownloadString(String.Format(FileManager.AuthLink, login, pwdHash, clientHash));
+			var response = webClient.DownloadString(String.Format(ServerManager.AuthLink, login, pwdHash, clientHash));
 
 			if (String.IsNullOrEmpty(response))
 				throw new InvalidOperationException(Errors.UnknownResponse);
@@ -51,7 +51,7 @@ namespace MinecraftLauncher.Core
 			};
 
 			var pwdHash = Tools.GetMd5HashFromString(password);
-			var response = webClient.DownloadString(String.Format(FileManager.RegLink, login, pwdHash));
+			var response = webClient.DownloadString(String.Format(ServerManager.RegLink, login, pwdHash));
 
 			if (response.Equals(Responses.BadLogin, StringComparison.OrdinalIgnoreCase))
 				throw new InvalidOperationException(Errors.InvalidLoginFormat);

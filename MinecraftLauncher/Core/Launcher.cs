@@ -30,7 +30,7 @@ namespace MinecraftLauncher.Core
 					RedirectStandardError = true,
 					FileName = FileManager.JavaFilePath,
 					Arguments = String.Format(
-						"-cp \"{0}\";\"{1}\";\"{2}\";\"{3}\"; -Djava.library.path=\"{4}\" -Xms{5}M -Xmx{6}M {7}{8}{9}{10} net.minecraft.client.Minecraft {11} {12} 78.46.80.82 25565",
+						"-cp \"{0}\";\"{1}\";\"{2}\";\"{3}\"; -Djava.library.path=\"{4}\" -Xms{5}M -Xmx{6}M {7}{8}{9}{10} net.minecraft.client.Minecraft {11} {12} {13} {14}",
 						Path.Combine(FileManager.MinecraftBinDirectory, "minecraft.jar"),
 						Path.Combine(FileManager.MinecraftBinDirectory, "lwjgl.jar"),
 						Path.Combine(FileManager.MinecraftBinDirectory, "lwjgl_util.jar"),
@@ -43,7 +43,9 @@ namespace MinecraftLauncher.Core
 						"-Dsun.java2d.opengl=false",
 						"-Dsun.java2d.pmoffscreen=false",
 						context.Login,
-						context.SessionID)
+						context.SessionID,
+						ServerManager.ServerIp,
+						ServerManager.ServerPort)
 				};
 
 				var directoryInfo = new DirectoryInfo(FileManager.MinecraftDirectory).Parent;
@@ -73,6 +75,8 @@ namespace MinecraftLauncher.Core
 
 						if (game.MainWindowHandle != IntPtr.Zero && game.MainWindowTitle == "Minecraft")
 						{
+							Tools.SetForegroundWindow(game.MainWindowHandle);
+							Tools.SetFocus(game.MainWindowHandle);
 							clientStarted = true;
 							break;
 						}
