@@ -26,9 +26,11 @@ namespace MinecraftLauncher.Core
 				var pi = new ProcessStartInfo
 				{
 					UseShellExecute = false,
+					CreateNoWindow = true,
+					RedirectStandardError = true,
 					FileName = FileManager.JavaFilePath,
 					Arguments = String.Format(
-						"-cp \"{0}\";\"{1}\";\"{2}\";\"{3}\"; -Djava.library.path=\"{4}\" -Xms{5}M -Xmx{6}M {7}{8}{9}{10} net.minecraft.client.Minecraft {11} {12}",
+						"-cp \"{0}\";\"{1}\";\"{2}\";\"{3}\"; -Djava.library.path=\"{4}\" -Xms{5}M -Xmx{6}M {7}{8}{9}{10} net.minecraft.client.Minecraft {11} {12} 78.46.80.82 25565",
 						Path.Combine(FileManager.MinecraftBinDirectory, "minecraft.jar"),
 						Path.Combine(FileManager.MinecraftBinDirectory, "lwjgl.jar"),
 						Path.Combine(FileManager.MinecraftBinDirectory, "lwjgl_util.jar"),
@@ -54,13 +56,21 @@ namespace MinecraftLauncher.Core
 					StartInfo = pi
 				};
 
-				game.Start();
+				if (!game.Start())
+					return;
+
+				game.ErrorDataReceived += (s, e) => File.AppendAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), e.Data + Environment.NewLine);
+				game.BeginErrorReadLine();
+
 				var clientStarted = false;
 
 				var waitForClientTask = new Task(() =>
 				{
 					for (var count = 0; count < 10; count++)
 					{
+						if (game.HasExited)
+							break;
+
 						if (game.MainWindowHandle != IntPtr.Zero && game.MainWindowTitle == "Minecraft")
 						{
 							clientStarted = true;
@@ -77,6 +87,11 @@ namespace MinecraftLauncher.Core
 					if (clientStarted)
 					{
 						Application.Exit();
+					}
+
+					if (game.HasExited)
+					{
+						Tools.InfoBoxShow("Запустить клиент не удалось!");
 					}
 				},
 				TaskScheduler.FromCurrentSynchronizationContext());

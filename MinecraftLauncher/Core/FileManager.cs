@@ -17,7 +17,7 @@ namespace MinecraftLauncher.Core
 		private const string MinecraftModsFolderName = "mods";
 		private const string MinecraftJarFileName = "minecraft.jar";
 
-		private const string JavaFileName = "javaw.exe";
+		private const string JavaFileName = "java.exe";
 
 		/// <summary>Путь к директории, из которой запущено приложение.</summary>
 		public static string StartupDirectory { get; private set; }

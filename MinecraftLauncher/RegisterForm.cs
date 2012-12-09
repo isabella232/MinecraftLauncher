@@ -49,7 +49,7 @@ namespace MinecraftLauncher
 			}
 			catch (Exception ex)
 			{
-				File.WriteAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace);
+				File.AppendAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace + Environment.NewLine);
 				Tools.InfoBoxShow(ex.Message);
 				PasswordTextBox.Text = string.Empty;
 				ConfirmTextBox.Text = string.Empty;

@@ -129,7 +129,7 @@ namespace MinecraftLauncher
 			}
 			catch (Exception ex)
 			{
-				File.WriteAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace);
+				File.AppendAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace);
 				Tools.InfoBoxShow(ex.Message);
 				Cursor = Cursors.Arrow;
 				return;
@@ -148,7 +148,7 @@ namespace MinecraftLauncher
 			}
 			catch (Exception ex)
 			{
-				File.WriteAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace);
+				File.AppendAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace + Environment.NewLine + Environment.NewLine);
 				Tools.InfoBoxShow(ex.Message);
 			}
 
