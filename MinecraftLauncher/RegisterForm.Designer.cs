@@ -40,7 +40,7 @@
 			// 
 			// LoginTextBox
 			// 
-			this.LoginTextBox.Location = new System.Drawing.Point(122, 88);
+			this.LoginTextBox.Location = new System.Drawing.Point(124, 88);
 			this.LoginTextBox.MaxLength = 146;
 			this.LoginTextBox.Name = "LoginTextBox";
 			this.LoginTextBox.Size = new System.Drawing.Size(206, 21);
@@ -48,7 +48,7 @@
 			// 
 			// PasswordTextBox
 			// 
-			this.PasswordTextBox.Location = new System.Drawing.Point(120, 130);
+			this.PasswordTextBox.Location = new System.Drawing.Point(122, 130);
 			this.PasswordTextBox.Name = "PasswordTextBox";
 			this.PasswordTextBox.PasswordChar = '•';
 			this.PasswordTextBox.Size = new System.Drawing.Size(206, 21);
@@ -56,7 +56,7 @@
 			// 
 			// ConfirmTextBox
 			// 
-			this.ConfirmTextBox.Location = new System.Drawing.Point(120, 172);
+			this.ConfirmTextBox.Location = new System.Drawing.Point(122, 172);
 			this.ConfirmTextBox.Name = "ConfirmTextBox";
 			this.ConfirmTextBox.PasswordChar = '•';
 			this.ConfirmTextBox.Size = new System.Drawing.Size(206, 21);
@@ -67,7 +67,7 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(117, 72);
+			this.label1.Location = new System.Drawing.Point(119, 72);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(41, 13);
 			this.label1.TabIndex = 5;
@@ -78,7 +78,7 @@
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(117, 114);
+			this.label2.Location = new System.Drawing.Point(119, 114);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(48, 13);
 			this.label2.TabIndex = 6;
@@ -89,7 +89,7 @@
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(117, 156);
+			this.label3.Location = new System.Drawing.Point(119, 156);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(87, 13);
 			this.label3.TabIndex = 7;
@@ -102,7 +102,7 @@
 			this.RegisterButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.RegisterButton.ForeColor = System.Drawing.Color.White;
 			this.RegisterButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
-			this.RegisterButton.Location = new System.Drawing.Point(120, 203);
+			this.RegisterButton.Location = new System.Drawing.Point(122, 203);
 			this.RegisterButton.Name = "RegisterButton";
 			this.RegisterButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.RegisterButton.Size = new System.Drawing.Size(100, 25);
@@ -120,7 +120,7 @@
 			this.CancelButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.CancelButton.ForeColor = System.Drawing.Color.White;
 			this.CancelButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
-			this.CancelButton.Location = new System.Drawing.Point(226, 203);
+			this.CancelButton.Location = new System.Drawing.Point(228, 203);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.CancelButton.Size = new System.Drawing.Size(100, 25);

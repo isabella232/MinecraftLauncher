@@ -62,5 +62,29 @@ namespace MinecraftLauncher.Core
 			if (response.Equals(Responses.Fail, StringComparison.OrdinalIgnoreCase))
 				throw new InvalidOperationException(Errors.RegistrationFail);
 		}
+
+		/// <summary>
+		/// Производит смену пароля.
+		/// </summary>
+		/// <param name="login">Логин</param>
+		/// <param name="password">Текущий пароль</param>
+		/// <param name="newpassword">Новый пароль</param>
+		public static void ChangePassword(string login, string password, string newpassword)
+		{
+			var webClient = new WebClient
+			{
+				Proxy = null
+			};
+
+			var currentHash = Tools.GetMd5HashFromString(password);
+			var newHash = Tools.GetMd5HashFromString(newpassword);
+			var response = webClient.DownloadString(String.Format(ServerManager.ChangePwdLink, login, currentHash, newHash));
+
+			if (response.Equals(Responses.BadLogin, StringComparison.OrdinalIgnoreCase))
+				throw new InvalidOperationException(Errors.InvalidLoginFormat);
+
+			if (response.Equals(Responses.Fail, StringComparison.OrdinalIgnoreCase))
+				throw new InvalidOperationException(Errors.RegistrationFail);
+		}
 	}
 }

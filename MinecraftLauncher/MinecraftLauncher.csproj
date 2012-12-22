@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CabinetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CabinetForm.Designer.cs">
+      <DependentUpon>CabinetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\AuthManager.cs" />
     <Compile Include="Core\Errors.cs" />
     <Compile Include="Core\FileManager.cs" />
@@ -121,6 +127,12 @@
     <Compile Include="UI\ImageButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\SkinViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="CabinetForm.resx">
+      <DependentUpon>CabinetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ico.ico" />
+    <None Include="Resources\grimreaper.png" />
     <None Include="Resources\button_active.png" />
     <None Include="Resources\button_disable.png" />
     <None Include="Resources\button.png" />

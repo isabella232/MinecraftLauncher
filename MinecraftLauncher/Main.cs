@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Net;
-using System.Text;
 using System.Windows.Forms;
 using MinecraftLauncher.Core;
-using MinecraftLauncher.Properties;
 
 namespace MinecraftLauncher
 {
