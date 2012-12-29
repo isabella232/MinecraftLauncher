@@ -1,24 +1,102 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using MinecraftLauncher.Core;
 
 namespace MinecraftLauncher
 {
 	public partial class CabinetForm : Form
 	{
+		private readonly LaunchContext context;
+		private Image selectedSkin;
+
 		public CabinetForm()
 		{
 			InitializeComponent();
 
-			var skin = Image.FromFile(@"C:\Users\Void\Desktop\skin_2012122205573286944.png");
-			skinViewer1.Skin = skin;
-			skinViewer2.Skin = skin;
-			skinViewer2.FrontRender = false;
+			KeyDown += (s, e) =>
+			{
+				if (e.KeyCode == Keys.Escape)
+					DialogResult = DialogResult.Cancel;
+			};
+		}
+
+		public CabinetForm(LaunchContext context) : this()
+		{
+			this.context = context;
+
+			Load += (s, e) =>
+			{
+				Text = String.Format(Strings.CabinetTitle, context.Login);
+
+				try
+				{
+					var skin = CabinetManager.GetSkin(context.Login);
+					skinViewer1.Skin = skinViewer2.Skin = skin;
+				}
+				catch(Exception ex)
+				{
+					Tools.InfoBoxShow(ex.Message);
+				}
+			};
+		}
+
+		private void ChooseSkinButtonClick(object sender, EventArgs e)
+		{
+			using (var op = new OpenFileDialog {Filter = "PNG|*.png"})
+			{
+				if (op.ShowDialog() != DialogResult.OK) 
+					return;
+
+				try
+				{
+					selectedSkin = FileManager.ValidateAndLoadSkinFile(op.FileName);
+					skinViewer1.Skin = skinViewer2.Skin = selectedSkin;
+				}
+				catch(Exception ex)
+				{
+					Tools.InfoBoxShow(ex.Message);
+				}
+			}
+		}
+
+		private void UploadSkinButtonClick(object sender, EventArgs e)
+		{
+			if (selectedSkin == null)
+			{
+				Tools.InfoBoxShow(Errors.ChooseSkinFirst);
+				return;
+			}
+
+			try
+			{
+				CabinetManager.UploadSkin(context.Login, context.SessionID, selectedSkin);
+			}
+			catch (Exception ex)
+			{
+				Tools.InfoBoxShow(ex.Message);
+				return;
+			}
+
+			Tools.InfoBoxShow(Strings.SkinUploaded);
+		}
+
+		private void ChangePasswordButtonClick(object sender, EventArgs e)
+		{
+			try
+			{
+				if (NewPasswordTextBox.Text.Length < ValidationUnit.PasswordMinLength)
+					throw new InvalidOperationException(String.Format(Errors.InvalidPasswordsLength, ValidationUnit.PasswordMinLength));
+
+				CabinetManager.ChangePassword(context.Login, CurrentPasswordTextBox.Text, context.SessionID, NewPasswordTextBox.Text);
+			}
+			catch (Exception ex)
+			{
+				Tools.InfoBoxShow(ex.Message);
+				return;
+			}
+
+			Tools.InfoBoxShow(Strings.PasswordChanged);
 		}
 	}
 }

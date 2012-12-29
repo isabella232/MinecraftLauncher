@@ -37,6 +37,7 @@
 			this.CheckForUpdatesButton = new MinecraftLauncher.UI.ImageButton();
 			this.SettingsButton = new MinecraftLauncher.UI.ImageButton();
 			this.LoginButton = new MinecraftLauncher.UI.ImageButton();
+			this.CabinetButton = new MinecraftLauncher.UI.ImageButton();
 			((System.ComponentModel.ISupportInitialize)(this.updaterControl)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -168,12 +169,31 @@
 			this.LoginButton.UseVisualStyleBackColor = false;
 			this.LoginButton.Click += new System.EventHandler(this.LoginButtonClick);
 			// 
+			// CabinetButton
+			// 
+			this.CabinetButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
+			this.CabinetButton.BackColor = System.Drawing.Color.Transparent;
+			this.CabinetButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
+			this.CabinetButton.Font = new System.Drawing.Font("Tahoma", 9.75F);
+			this.CabinetButton.ForeColor = System.Drawing.Color.White;
+			this.CabinetButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
+			this.CabinetButton.Location = new System.Drawing.Point(408, 304);
+			this.CabinetButton.Name = "CabinetButton";
+			this.CabinetButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
+			this.CabinetButton.Size = new System.Drawing.Size(100, 25);
+			this.CabinetButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
+			this.CabinetButton.TabIndex = 14;
+			this.CabinetButton.Text = "Cabinet";
+			this.CabinetButton.UseVisualStyleBackColor = false;
+			this.CabinetButton.Click += new System.EventHandler(this.CabinetButtonClick);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = global::MinecraftLauncher.Properties.Resources.bg;
 			this.ClientSize = new System.Drawing.Size(854, 480);
+			this.Controls.Add(this.CabinetButton);
 			this.Controls.Add(this.CheckForUpdatesButton);
 			this.Controls.Add(this.SettingsButton);
 			this.Controls.Add(this.LoginButton);
@@ -207,6 +227,7 @@
 		private UI.ImageButton LoginButton;
 		private UI.ImageButton SettingsButton;
 		private UI.ImageButton CheckForUpdatesButton;
+		private UI.ImageButton CabinetButton;
 	}
 }
 

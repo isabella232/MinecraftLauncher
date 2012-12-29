@@ -72,7 +72,7 @@ namespace MinecraftLauncher.UI
 		/// </summary>
 		public SkinViewer()
 		{
-			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
+			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
 		}
 
 		/// <summary>

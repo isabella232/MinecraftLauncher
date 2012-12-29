@@ -16,6 +16,7 @@ namespace MinecraftLauncher
 			InitializeComponent();
 			Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 			LoginButton.State = UI.ImageButton.ImageButtonState.Disabled;
+			CabinetButton.State = UI.ImageButton.ImageButtonState.Disabled;
 
 			UpdateLocalizer.Localize(updaterControl);
 
@@ -24,9 +25,20 @@ namespace MinecraftLauncher
 				checkForUpdatesOnStart = false;
 				LoginButton.State = UI.ImageButton.ImageButtonState.Normal;
 			};
+
 			updaterControl.ReadyToBeInstalled += (s, e) => updaterControl.InstallNow();
-			updaterControl.UpToDate += (s, e) => LoginButton.State = UI.ImageButton.ImageButtonState.Normal;
-			updaterControl.CheckingFailed += (s, e) => LoginButton.State = UI.ImageButton.ImageButtonState.Normal;
+
+			updaterControl.UpToDate += (s, e) =>
+			{
+				LoginButton.State = UI.ImageButton.ImageButtonState.Normal;
+				CabinetButton.State = UI.ImageButton.ImageButtonState.Normal;
+			};
+
+			updaterControl.CheckingFailed += (s, e) =>
+			{
+				LoginButton.State = UI.ImageButton.ImageButtonState.Normal;
+				CabinetButton.State = UI.ImageButton.ImageButtonState.Normal;
+			};
 
 			Load += FormLoad;
 			KeyDown += (s, e) =>
@@ -94,7 +106,7 @@ namespace MinecraftLauncher
 			}
 		}
 
-		private void LoginButtonClick(object sender, EventArgs e)
+		private bool Login()
 		{
 			try
 			{
@@ -103,7 +115,7 @@ namespace MinecraftLauncher
 			catch (Exception ex)
 			{
 				Tools.InfoBoxShow(ex.Message);
-				return;
+				return false;
 			}
 
 			try
@@ -114,7 +126,7 @@ namespace MinecraftLauncher
 			{
 				Tools.InfoBoxShow(Errors.ClientDamagedText, Errors.ClientDamagedTitle);
 				LoginButton.State = UI.ImageButton.ImageButtonState.Disabled;
-				return;
+				return false;
 			}
 
 			Application.DoEvents();
@@ -129,7 +141,7 @@ namespace MinecraftLauncher
 				File.AppendAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace);
 				Tools.InfoBoxShow(ex.Message);
 				Cursor = Cursors.Arrow;
-				return;
+				return false;
 			}
 			finally
 			{
@@ -141,6 +153,20 @@ namespace MinecraftLauncher
 
 			try
 			{
+				SettingsManager.Save(context);
+			}
+			catch (Exception ex)
+			{
+				Tools.InfoBoxShow(Errors.SettingsSaveError + ex.Message);
+			}
+
+			return true;
+		}
+
+		public void Run()
+		{
+			try
+			{
 				Launcher.Run(context);
 			}
 			catch (Exception ex)
@@ -148,14 +174,25 @@ namespace MinecraftLauncher
 				File.AppendAllText(Path.Combine(FileManager.StartupDirectory, "log.txt"), ex.StackTrace + Environment.NewLine + Environment.NewLine);
 				Tools.InfoBoxShow(ex.Message);
 			}
+		}
 
-			try
+		private void LoginButtonClick(object sender, EventArgs e)
+		{
+			if (Login())
+				Run();
+		}
+
+		private void CabinetButtonClick(object sender, EventArgs e)
+		{
+			if (!Login())
+				return;
+
+			using (var cabinet = new CabinetForm(context))
 			{
-				SettingsManager.Save(context);
-			}
-			catch (Exception ex)
-			{
-				Tools.InfoBoxShow(Errors.SettingsSaveError + ex.Message);
+				if (cabinet.ShowDialog() == DialogResult.OK)
+				{
+					Run();
+				}
 			}
 		}
 

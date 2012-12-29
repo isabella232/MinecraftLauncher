@@ -15,6 +15,12 @@
 		public const string InvalidPasswordsLength = "Минимальная длина пароля составляет {0} символов.";
 		public const string LoginInUse = "Данное имя уже занято, придумайте другое.";
 
+		// Кабинет
+		public const string ChooseSkinFirst = "Выберите скин сначала!";
+		public const string InvalidSkinFormat = "Неверный формат скина. Допускаются только картинки формата PNG.";
+		public const string InvalidSkinFileLength = "Неверный размер файла. Допускаются файлы до 5 Кб.";
+		public const string InvalidSkinSize = "Неверный размер скина. Допускаются изображения только 64х32.";
+
 		// Настройки
 		public const string SettingsLoadError = "Ошибка при загрузке настроек ланчера!\n";
 		public const string SettingsSaveError = "Ошибка при сохранении настроек ланчера!\n";

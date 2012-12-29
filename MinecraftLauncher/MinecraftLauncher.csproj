@@ -93,16 +93,17 @@
       <DependentUpon>CabinetForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\AuthManager.cs" />
+    <Compile Include="Core\CabinetManager.cs" />
     <Compile Include="Core\Errors.cs" />
     <Compile Include="Core\FileManager.cs" />
     <Compile Include="Core\LaunchContext.cs" />
     <Compile Include="Core\Launcher.cs" />
     <Compile Include="Core\Responses.cs" />
-    <Compile Include="Core\ServerManager.cs" />
+    <Compile Include="Core\Links.cs" />
     <Compile Include="Core\SettingsManager.cs" />
     <Compile Include="Core\Strings.cs" />
     <Compile Include="Core\Tools.cs" />
-    <Compile Include="Core\UpdateLocolizer.cs" />
+    <Compile Include="Core\UpdateLocalizer.cs" />
     <Compile Include="Core\ValidationUnit.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ico.ico" />
+    <None Include="Resources\bg_cabinet.png" />
     <None Include="Resources\grimreaper.png" />
     <None Include="Resources\button_active.png" />
     <None Include="Resources\button_disable.png" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -18,6 +19,10 @@ namespace MinecraftLauncher.Core
 		private const string MinecraftJarFileName = "minecraft.jar";
 
 		private const string JavaFileName = "java.exe";
+
+		private const long SkinMaxSize = 5 * 1024;
+		private const int SkinMaxWidth = 64;
+		private const int SkinMaxHeight = 32;
 
 		/// <summary>Путь к директории, из которой запущено приложение.</summary>
 		public static string StartupDirectory { get; private set; }
@@ -49,11 +54,14 @@ namespace MinecraftLauncher.Core
 		}
 
 		/// <summary>
-		/// Определяет местоположение Java на комьютере.
+		/// Определяет местоположение Java на комьютере, если оно не задано в контексте.
 		/// </summary>
 		/// <param name="context">Контекст запуска</param>
 		public static void LocateJava(LaunchContext context)
 		{
+			if (!String.IsNullOrEmpty(context.JavaHomePath))
+				return;
+
 			string javaHome;
 
 			if (LocateJavaHome(out javaHome))
@@ -66,6 +74,20 @@ namespace MinecraftLauncher.Core
 			JavaHomePath = javaHome;
 
 			var javawFilePath = Path.Combine(JavaHomePath, "bin", JavaFileName);
+
+			if (!File.Exists(javawFilePath))
+				throw new InvalidOperationException(String.Format(Errors.UnableToFindJavaExe, JavaFileName));
+
+			JavaFilePath = javawFilePath;
+		}
+
+		/// <summary>
+		/// Определяет местоположение Java на компьютере, используя контекст запуска.
+		/// </summary>
+		/// <param name="context">Контекст запуска</param>
+		public static void LocateJavaFromSettings(LaunchContext context)
+		{
+			var javawFilePath = Path.Combine(context.JavaHomePath, "bin", JavaFileName);
 
 			if (!File.Exists(javawFilePath))
 				throw new InvalidOperationException(String.Format(Errors.UnableToFindJavaExe, JavaFileName));
@@ -137,6 +159,33 @@ namespace MinecraftLauncher.Core
 			{
 				return false;
 			}
+		}
+
+		public static Image ValidateAndLoadSkinFile(string file)
+		{
+			var info = new FileInfo(file);
+
+			if (info.Length > SkinMaxSize)
+				throw new InvalidOperationException(Errors.InvalidSkinFileLength);
+
+			Image rtnImage;
+
+			try
+			{
+				rtnImage = Image.FromFile(file);
+			}
+			catch
+			{
+				throw new InvalidOperationException(Errors.InvalidSkinFormat);
+			}
+
+			if (rtnImage.Width != SkinMaxWidth || rtnImage.Height != SkinMaxHeight)
+			{
+				rtnImage.Dispose();
+				throw new InvalidOperationException(Errors.InvalidSkinSize);
+			}
+
+			return rtnImage;
 		}
 	}
 }

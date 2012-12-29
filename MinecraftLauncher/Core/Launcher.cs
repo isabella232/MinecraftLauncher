@@ -20,7 +20,7 @@ namespace MinecraftLauncher.Core
 		{
 			try
 			{
-				FileManager.LocateJava(context);
+				FileManager.LocateJavaFromSettings(context);
 				FileManager.LocateMinecraft();
 
 				var pi = new ProcessStartInfo
@@ -44,8 +44,8 @@ namespace MinecraftLauncher.Core
 						"-Dsun.java2d.pmoffscreen=false",
 						context.Login,
 						context.SessionID,
-						ServerManager.ServerIp,
-						ServerManager.ServerPort)
+						Links.Server,
+						Links.ServerPort)
 				};
 
 				var directoryInfo = new DirectoryInfo(FileManager.MinecraftDirectory).Parent;
