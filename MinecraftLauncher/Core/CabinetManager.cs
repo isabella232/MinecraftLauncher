@@ -73,6 +73,9 @@ namespace MinecraftLauncher.Core
                 { "session", session },
             });
 
+			if (String.IsNullOrEmpty(response))
+				throw new InvalidOperationException(Errors.UnknownSkinResponse);
+
 			if (response.Equals(Responses.BadLogin, StringComparison.OrdinalIgnoreCase))
 				throw new InvalidOperationException(Errors.InvalidLoginOrPassword);
 

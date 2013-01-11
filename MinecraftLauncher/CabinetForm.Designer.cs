@@ -42,7 +42,7 @@
 			// 
 			// NewPasswordTextBox
 			// 
-			this.NewPasswordTextBox.Location = new System.Drawing.Point(87, 433);
+			this.NewPasswordTextBox.Location = new System.Drawing.Point(89, 441);
 			this.NewPasswordTextBox.Name = "NewPasswordTextBox";
 			this.NewPasswordTextBox.PasswordChar = '•';
 			this.NewPasswordTextBox.Size = new System.Drawing.Size(206, 21);
@@ -50,7 +50,7 @@
 			// 
 			// CurrentPasswordTextBox
 			// 
-			this.CurrentPasswordTextBox.Location = new System.Drawing.Point(89, 391);
+			this.CurrentPasswordTextBox.Location = new System.Drawing.Point(91, 399);
 			this.CurrentPasswordTextBox.MaxLength = 146;
 			this.CurrentPasswordTextBox.Name = "CurrentPasswordTextBox";
 			this.CurrentPasswordTextBox.PasswordChar = '•';
@@ -62,7 +62,7 @@
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(84, 417);
+			this.label2.Location = new System.Drawing.Point(86, 425);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(83, 13);
 			this.label2.TabIndex = 10;
@@ -73,7 +73,7 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(84, 375);
+			this.label1.Location = new System.Drawing.Point(86, 383);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(94, 13);
 			this.label1.TabIndex = 9;
@@ -86,13 +86,13 @@
 			this.UploadSkinButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.UploadSkinButton.ForeColor = System.Drawing.Color.White;
 			this.UploadSkinButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
-			this.UploadSkinButton.Location = new System.Drawing.Point(201, 335);
+			this.UploadSkinButton.Location = new System.Drawing.Point(222, 340);
 			this.UploadSkinButton.Name = "UploadSkinButton";
 			this.UploadSkinButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.UploadSkinButton.Size = new System.Drawing.Size(100, 25);
 			this.UploadSkinButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
 			this.UploadSkinButton.TabIndex = 13;
-			this.UploadSkinButton.Text = "Загрузить";
+			this.UploadSkinButton.Text = "Установить";
 			this.UploadSkinButton.UseVisualStyleBackColor = false;
 			this.UploadSkinButton.Click += new System.EventHandler(this.UploadSkinButtonClick);
 			// 
@@ -104,10 +104,10 @@
 			this.PlayButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.PlayButton.ForeColor = System.Drawing.Color.White;
 			this.PlayButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
-			this.PlayButton.Location = new System.Drawing.Point(142, 505);
+			this.PlayButton.Location = new System.Drawing.Point(142, 506);
 			this.PlayButton.Name = "PlayButton";
 			this.PlayButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
-			this.PlayButton.Size = new System.Drawing.Size(100, 25);
+			this.PlayButton.Size = new System.Drawing.Size(100, 35);
 			this.PlayButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
 			this.PlayButton.TabIndex = 12;
 			this.PlayButton.Text = "Играть";
@@ -120,7 +120,7 @@
 			this.ChangePasswordButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.ChangePasswordButton.ForeColor = System.Drawing.Color.White;
 			this.ChangePasswordButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
-			this.ChangePasswordButton.Location = new System.Drawing.Point(142, 474);
+			this.ChangePasswordButton.Location = new System.Drawing.Point(142, 469);
 			this.ChangePasswordButton.Name = "ChangePasswordButton";
 			this.ChangePasswordButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.ChangePasswordButton.Size = new System.Drawing.Size(100, 25);
@@ -137,7 +137,7 @@
 			this.ChooseSkinButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
 			this.ChooseSkinButton.ForeColor = System.Drawing.Color.White;
 			this.ChooseSkinButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
-			this.ChooseSkinButton.Location = new System.Drawing.Point(82, 335);
+			this.ChooseSkinButton.Location = new System.Drawing.Point(62, 340);
 			this.ChooseSkinButton.Name = "ChooseSkinButton";
 			this.ChooseSkinButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
 			this.ChooseSkinButton.Size = new System.Drawing.Size(100, 25);
@@ -177,7 +177,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = global::MinecraftLauncher.Properties.Resources.bg_cabinet;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(384, 540);
+			this.ClientSize = new System.Drawing.Size(384, 560);
 			this.Controls.Add(this.UploadSkinButton);
 			this.Controls.Add(this.PlayButton);
 			this.Controls.Add(this.ChangePasswordButton);

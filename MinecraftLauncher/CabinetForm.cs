@@ -21,6 +21,19 @@ namespace MinecraftLauncher
 			};
 		}
 
+		private void ShowSkin()
+		{
+			try
+			{
+				var skin = CabinetManager.GetSkin(context.Login);
+				skinViewer1.Skin = skinViewer2.Skin = skin;
+			}
+			catch (Exception ex)
+			{
+				Tools.InfoBoxShow(ex.Message);
+			}
+		}
+
 		public CabinetForm(LaunchContext context) : this()
 		{
 			this.context = context;
@@ -28,16 +41,7 @@ namespace MinecraftLauncher
 			Load += (s, e) =>
 			{
 				Text = String.Format(Strings.CabinetTitle, context.Login);
-
-				try
-				{
-					var skin = CabinetManager.GetSkin(context.Login);
-					skinViewer1.Skin = skinViewer2.Skin = skin;
-				}
-				catch(Exception ex)
-				{
-					Tools.InfoBoxShow(ex.Message);
-				}
+				ShowSkin();
 			};
 		}
 
@@ -78,6 +82,7 @@ namespace MinecraftLauncher
 				return;
 			}
 
+			ShowSkin();
 			Tools.InfoBoxShow(Strings.SkinUploaded);
 		}
 

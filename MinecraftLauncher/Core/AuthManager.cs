@@ -27,7 +27,7 @@ namespace MinecraftLauncher.Core
 			var response = webClient.DownloadString(String.Format(Links.AuthLink, login, pwdHash, clientHash));
 
 			if (String.IsNullOrEmpty(response))
-				throw new InvalidOperationException(Errors.UnknownResponse);
+				throw new InvalidOperationException(Errors.UnknownAuthResponse);
 
 			if (response.Equals(Responses.Checksum, StringComparison.OrdinalIgnoreCase))
 				throw new InvalidOperationException(Errors.InvalidVersion);

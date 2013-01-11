@@ -56,6 +56,8 @@ namespace MinecraftLauncher.UI
 
 		private Image HeadFront { get; set; }
 		private Image HeadBack { get; set; }
+		private Image HatFront { get; set; }
+		private Image HatBack { get; set; }
 		private Image ArmLeftFront { get; set; }
 		private Image ArmLeftBack { get; set; }
 		private Image ArmRightFront { get; set; }
@@ -86,6 +88,10 @@ namespace MinecraftLauncher.UI
 			// Голова
 			HeadFront = CropImage(skin, new Rectangle(8, 8, 8, 8));
 			HeadBack = CropImage(skin, new Rectangle(24, 8, 8, 8));
+
+			// Шляпа / маска
+			HatFront = CropImage(skin, new Rectangle(40, 8, 8, 8));
+			HatBack = CropImage(skin, new Rectangle(56, 8, 8, 8));
 
 			// Руки - перед
 			ArmRightFront = CropImage(skin, new Rectangle(44, 20, 4, 12));
@@ -142,7 +148,7 @@ namespace MinecraftLauncher.UI
 			if (image == null)
 				return;
 
-			gfx.DrawImage(image, x + 1, y, image.Width, image.Height);
+			gfx.DrawImage(image, x + 1, y + 1, image.Width, image.Height);
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
@@ -155,6 +161,7 @@ namespace MinecraftLauncher.UI
 				using (var gfx = Graphics.FromImage(image))
 				{
 					DrawPart(gfx, frontRender ? HeadFront : HeadBack, 4, 0);
+					DrawPart(gfx, frontRender ? HatFront : HatBack, 4, 0);
 					DrawPart(gfx, frontRender ? ArmRightFront : ArmRightBack, 0, 8);
 					DrawPart(gfx, frontRender ? ArmLeftFront : ArmLeftBack, 12, 8);
 					DrawPart(gfx, frontRender ? ChestFront : ChestBack, 4, 8);

@@ -3,12 +3,13 @@
 	static class Errors
 	{
 		// Авторизация
-		public const string UnknownResponse = "Сервер авторизации не отвечает!";
+		public const string UnknownAuthResponse = "Сервер авторизации не отвечает!";
 		public const string RegistrationFail = "Ошибка во время регистрации, сообщите об этом администрации!";
 		public const string InvalidLoginOrPassword = "Неверный логин или пароль!";
 		public const string InvalidVersion = "Версия клиента устарела, выполните обновление!";
 
 		// Регистрация
+		public const string UnknownSkinResponse = "Сервер скинов не отвечает!";
 		public const string InvalidLoginLength = "Имя должно быть длиной от {0} до {1} символов.";
 		public const string InvalidLoginFormat = "Имя может состоять только из малых/заглавных букв английского алфавита, цифр и знаков '-', '_'.";
 		public const string PasswordsNotMatch = "Пароли не совпадают.";

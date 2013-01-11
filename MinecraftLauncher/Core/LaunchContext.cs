@@ -29,14 +29,14 @@ namespace MinecraftLauncher.Core
 		public LaunchContext Copy()
 		{
 			return new LaunchContext
-				{
-					JavaHomePath = JavaHomePath,
-					InitialJavaHeapSize = InitialJavaHeapSize,
-					MaximumJavaHeapSize = MaximumJavaHeapSize,
-					Login = Login,
-					Password = Password,
-					SessionID = SessionID
-				};
+			{
+				JavaHomePath = JavaHomePath,
+				InitialJavaHeapSize = InitialJavaHeapSize,
+				MaximumJavaHeapSize = MaximumJavaHeapSize,
+				Login = Login,
+				Password = Password,
+				SessionID = SessionID
+			};
 		}
 	}
 }

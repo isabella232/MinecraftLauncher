@@ -34,10 +34,10 @@
 			this.PasswordTextBox = new System.Windows.Forms.TextBox();
 			this.RegisterLink = new System.Windows.Forms.LinkLabel();
 			this.updaterControl = new wyDay.Controls.AutomaticUpdater();
+			this.CabinetButton = new MinecraftLauncher.UI.ImageButton();
 			this.CheckForUpdatesButton = new MinecraftLauncher.UI.ImageButton();
 			this.SettingsButton = new MinecraftLauncher.UI.ImageButton();
 			this.LoginButton = new MinecraftLauncher.UI.ImageButton();
-			this.CabinetButton = new MinecraftLauncher.UI.ImageButton();
 			((System.ComponentModel.ISupportInitialize)(this.updaterControl)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -62,7 +62,7 @@
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(111, 16);
 			this.label1.TabIndex = 2;
-			this.label1.Text = "Username:";
+			this.label1.Text = "Логин:";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// label2
@@ -74,7 +74,7 @@
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(111, 16);
 			this.label2.TabIndex = 3;
-			this.label2.Text = "Password:";
+			this.label2.Text = "Пароль:";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// PasswordTextBox
@@ -95,12 +95,12 @@
 			this.RegisterLink.AutoSize = true;
 			this.RegisterLink.BackColor = System.Drawing.Color.Transparent;
 			this.RegisterLink.LinkColor = System.Drawing.Color.LawnGreen;
-			this.RegisterLink.Location = new System.Drawing.Point(354, 282);
+			this.RegisterLink.Location = new System.Drawing.Point(335, 282);
 			this.RegisterLink.Name = "RegisterLink";
-			this.RegisterLink.Size = new System.Drawing.Size(47, 13);
+			this.RegisterLink.Size = new System.Drawing.Size(71, 13);
 			this.RegisterLink.TabIndex = 6;
 			this.RegisterLink.TabStop = true;
-			this.RegisterLink.Text = "Register";
+			this.RegisterLink.Text = "Регистрация";
 			this.RegisterLink.VisitedLinkColor = System.Drawing.Color.LawnGreen;
 			this.RegisterLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RegisterLinkClicked);
 			// 
@@ -116,6 +116,24 @@
 			this.updaterControl.Size = new System.Drawing.Size(16, 16);
 			this.updaterControl.TabIndex = 10;
 			this.updaterControl.wyUpdateCommandline = null;
+			// 
+			// CabinetButton
+			// 
+			this.CabinetButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
+			this.CabinetButton.BackColor = System.Drawing.Color.Transparent;
+			this.CabinetButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
+			this.CabinetButton.Font = new System.Drawing.Font("Tahoma", 9.75F);
+			this.CabinetButton.ForeColor = System.Drawing.Color.White;
+			this.CabinetButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
+			this.CabinetButton.Location = new System.Drawing.Point(408, 304);
+			this.CabinetButton.Name = "CabinetButton";
+			this.CabinetButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
+			this.CabinetButton.Size = new System.Drawing.Size(100, 25);
+			this.CabinetButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
+			this.CabinetButton.TabIndex = 14;
+			this.CabinetButton.Text = "Кабинет";
+			this.CabinetButton.UseVisualStyleBackColor = false;
+			this.CabinetButton.Click += new System.EventHandler(this.CabinetButtonClick);
 			// 
 			// CheckForUpdatesButton
 			// 
@@ -165,27 +183,9 @@
 			this.LoginButton.Size = new System.Drawing.Size(100, 25);
 			this.LoginButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
 			this.LoginButton.TabIndex = 11;
-			this.LoginButton.Text = "Login";
+			this.LoginButton.Text = "Вход";
 			this.LoginButton.UseVisualStyleBackColor = false;
 			this.LoginButton.Click += new System.EventHandler(this.LoginButtonClick);
-			// 
-			// CabinetButton
-			// 
-			this.CabinetButton.Active = global::MinecraftLauncher.Properties.Resources.button_active;
-			this.CabinetButton.BackColor = System.Drawing.Color.Transparent;
-			this.CabinetButton.Disabled = global::MinecraftLauncher.Properties.Resources.button_disable;
-			this.CabinetButton.Font = new System.Drawing.Font("Tahoma", 9.75F);
-			this.CabinetButton.ForeColor = System.Drawing.Color.White;
-			this.CabinetButton.Hover = global::MinecraftLauncher.Properties.Resources.button_hover;
-			this.CabinetButton.Location = new System.Drawing.Point(408, 304);
-			this.CabinetButton.Name = "CabinetButton";
-			this.CabinetButton.Normal = global::MinecraftLauncher.Properties.Resources.button;
-			this.CabinetButton.Size = new System.Drawing.Size(100, 25);
-			this.CabinetButton.State = MinecraftLauncher.UI.ImageButton.ImageButtonState.Normal;
-			this.CabinetButton.TabIndex = 14;
-			this.CabinetButton.Text = "Cabinet";
-			this.CabinetButton.UseVisualStyleBackColor = false;
-			this.CabinetButton.Click += new System.EventHandler(this.CabinetButtonClick);
 			// 
 			// Main
 			// 

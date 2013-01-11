@@ -18,12 +18,14 @@ namespace MinecraftLauncher
 			LoginButton.State = UI.ImageButton.ImageButtonState.Disabled;
 			CabinetButton.State = UI.ImageButton.ImageButtonState.Disabled;
 
+			Tools.SetAllowUnsafeHeaderParsing20();
 			UpdateLocalizer.Localize(updaterControl);
 
 			updaterControl.UpdateSuccessful += (s, e) =>
 			{
 				checkForUpdatesOnStart = false;
 				LoginButton.State = UI.ImageButton.ImageButtonState.Normal;
+				CabinetButton.State = UI.ImageButton.ImageButtonState.Normal;
 			};
 
 			updaterControl.ReadyToBeInstalled += (s, e) => updaterControl.InstallNow();
@@ -79,8 +81,6 @@ namespace MinecraftLauncher
 
 			if (checkForUpdatesOnStart)
 				updaterControl.ForceCheckForUpdate(true);
-
-			context.Password = Tools.DecodePassword(context.Password);
 
 			LoginTextBox.Text = context.Login;
 			PasswordTextBox.Text = context.Password;
@@ -149,7 +149,7 @@ namespace MinecraftLauncher
 			}
 
 			context.Login = LoginTextBox.Text;
-			context.Password = Tools.EncodePassword(PasswordTextBox.Text);
+			context.Password = PasswordTextBox.Text;
 
 			try
 			{
